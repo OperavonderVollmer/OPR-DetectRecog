@@ -1,22 +1,15 @@
 from OPRDetectRecog.Interfaces.Detector import Detector
 from OPRDetectRecog.Interfaces.Recognizer import Recognizer
-from OPRDetectRecog.Custom.LinguistResult import LinguistResult
 from OperaPowerRelay import opr
 from PIL import Image
 
 import os, importlib.util
+from pathlib import Path
 
-def load_detectors(p: str = None, specific_detector: str = None) -> Detector | dict[str, Detector]:
+def load_detectors(specific_detector: str = None) -> Detector | dict[str, Detector]:
 
 
-    abs_path = p or os.path.dirname(os.path.abspath(__file__))
-
-    if not abs_path.endswith("Detectors"):
-        path = os.path.join(abs_path, "Detectors")
-    else :
-        path = abs_path
-
-    detectors_path = path
+    detectors_path = Path(__file__).resolve().parent / "Detectors"
 
     detectors = {}
 
@@ -42,17 +35,9 @@ def load_detectors(p: str = None, specific_detector: str = None) -> Detector | d
     return detectors
 
 
-def load_recognizers(p: str = None, specific_recognizer: str = None) -> Recognizer | dict[str, Recognizer]:
+def load_recognizers(specific_recognizer: str = None) -> Recognizer | dict[str, Recognizer]:
 
-
-    abs_path = p or os.path.dirname(os.path.abspath(__file__))
-
-    if not abs_path.endswith("Recognizer"):
-        path = os.path.join(abs_path, "Recognizers")
-    else :
-        path = abs_path
-
-    recognizers_path = path
+    recognizers_path = Path(__file__).resolve().parent / "Recognizers"
 
     recognizers = {}
 
@@ -79,15 +64,9 @@ def load_recognizers(p: str = None, specific_recognizer: str = None) -> Recogniz
 
 
 
-
-
-
-
-
-
 def main(p: str = None) -> None:
 
-
+    
     """
 
         OPR Detect Recog v1.0.0
@@ -114,10 +93,9 @@ def main(p: str = None) -> None:
 
     print("OPR Detect Recog v1.0.0 demo")
 
-    abs_path = p or os.path.dirname(os.path.abspath(__file__))
 
-    recognizers = load_recognizers(abs_path)
-    detectors = load_detectors(abs_path)
+    recognizers = load_recognizers()
+    detectors = load_detectors()
 
 
     while True:
