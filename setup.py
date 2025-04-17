@@ -11,7 +11,7 @@ setup(
         "deep_translator",
         "easyocr",
         "paddleocr",
-        "paddlepaddle"
+        "paddlepaddle",
         "manga-ocr",
         "OperaPowerRelay @ git+https://github.com/OperavonderVollmer/OperaPowerRelay@main"
     ],
