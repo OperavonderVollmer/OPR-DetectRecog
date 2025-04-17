@@ -9,6 +9,23 @@ from pathlib import Path
 def load_detectors(specific_detector: str = None) -> Detector | dict[str, Detector]:
 
 
+    """
+    Loads detector modules in the "Detectors" directory and returns their instances.
+
+    If a specific detector is specified, it will be returned as a Detector instance.
+    Otherwise, a dictionary of all detectors will be returned.
+
+    Parameters
+    ----------
+    specific_detector : str, optional
+        The name of a specific detector to load.
+
+    Returns
+    -------
+    Detector | dict[str, Detector]
+        A Detector instance or a dictionary of Detector instances, depending on the input.
+    """
+
     detectors_path = Path(__file__).resolve().parent / "Detectors"
 
     detectors = {}
@@ -37,6 +54,23 @@ def load_detectors(specific_detector: str = None) -> Detector | dict[str, Detect
 
 def load_recognizers(specific_recognizer: str = None) -> Recognizer | dict[str, Recognizer]:
 
+    """
+    Loads recognizer modules in the "Recognizers" directory and returns their instances.
+
+    If a specific recognizer is specified, it will be returned as a Recognizer instance.
+    Otherwise, a dictionary of all recognizers will be returned.
+
+    Parameters
+    ----------
+    specific_recognizer : str, optional
+        The name of a specific recognizer to load.
+
+    Returns
+    -------
+    Recognizer | dict[str, Recognizer]
+        A Recognizer instance or a dictionary of Recognizer instances, depending on the input.
+    """
+    
     recognizers_path = Path(__file__).resolve().parent / "Recognizers"
 
     recognizers = {}
