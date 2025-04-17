@@ -6,12 +6,12 @@ setup(
     packages=find_packages(),
     install_requires=[
         "numpy<2",
-        "torch==2.,2.1",
+        "torch==2.2.1",
         "torchvision==0.17.1",
         "deep_translator",
         "easyocr",
         "paddleocr",
-        "paddlepaddle"
+        "paddlepaddle",
         "manga-ocr",
         "OperaPowerRelay @ git+https://github.com/OperavonderVollmer/OperaPowerRelay@main"
     ],
