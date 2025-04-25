@@ -3,9 +3,10 @@ from OPRDetectRecog.Custom.Quadbox import QuadBox
 
 
 class LinguistResult:
-    def __init__(self, QuadBox: QuadBox|list, text: str, confidence: float):
+    def __init__(self, QuadBox: QuadBox|list, original: str, translated: str, confidence: float):
         self._QuadBox = self.process_bbox(QuadBox)
-        self._text = text
+        self._original = original
+        self._translated = translated
         self._confidence = confidence
 
     def process_bbox(self, bbox: QuadBox|list) -> QuadBox:
@@ -20,10 +21,13 @@ class LinguistResult:
     def QuadBox(self) -> QuadBox:
         return self._QuadBox
     
+    @property
+    def Original(self) -> str:
+        return self._original
 
     @property
-    def Text(self) -> str:
-        return self._text
+    def Translated(self) -> str:
+        return self._translated
     
 
     @property
